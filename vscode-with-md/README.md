@@ -33,4 +33,4 @@ To enable real-time collaboration on a GitHub repo, sign in with GitHub when pro
 ## Links
 
 - [with.md](https://with.md)
-- [GitHub](https://github.com/emotion-machine-org/with-md)
+- [GitHub](https://github.com/tin-computer/with-md)

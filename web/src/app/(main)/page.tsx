@@ -449,7 +449,7 @@ export default function Home() {
 
                 <div className="withmd-landing-section withmd-landing-landscape-row">
                   <Link
-                    href="https://github.com/emotion-machine-org/with-md"
+                    href="https://github.com/tin-computer/with-md"
                     className="withmd-landing-github-inline"
                     target="_blank"
                     rel="noopener noreferrer"
