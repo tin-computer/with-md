@@ -8,6 +8,10 @@ const enablePrivateFonts = process.env.WITHMD_ENABLE_PRIVATE_FONTS === '1';
 const privateFontsStylesheetUrl = process.env.WITHMD_PRIVATE_FONTS_STYLESHEET_URL?.trim() || '/private-fonts.css';
 const configuredGoogleAnalyticsId = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID?.trim() || 'G-YZB6FGJP9F';
 const googleAnalyticsMeasurementId = /^G-[A-Z0-9]+$/.test(configuredGoogleAnalyticsId) ? configuredGoogleAnalyticsId : '';
+// Traffic-analysis sensor (human vs automated/AI-agent traffic). Sensor only: no
+// session replay or DOM recording. Async, so it never blocks rendering; skipped in
+// local dev.
+const enableTrafficSensor = process.env.NODE_ENV === 'production';
 const siteTitle = 'with.md - Markdown collaboration for developers and agents';
 const siteDescription = 'Share anonymous markdown links and collaborate on GitHub-backed docs with developers and agents.';
 
@@ -41,6 +45,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" data-theme="dark" data-bg="1" data-bg-hidden="0" suppressHydrationWarning>
       <head>
+        {enableTrafficSensor ? (
+          <script async src="https://capture-staging.clawmessenger.com/sdk/v1.js" data-site="organic-withmd" />
+        ) : null}
         {enablePrivateFonts ? <link rel="stylesheet" href={privateFontsStylesheetUrl} /> : null}
         <script
           dangerouslySetInnerHTML={{
