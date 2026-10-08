@@ -46,7 +46,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" data-theme="dark" data-bg="1" data-bg-hidden="0" suppressHydrationWarning>
       <head>
         {enableTrafficSensor ? (
-          <script async src="https://capture-staging.clawmessenger.com/sdk/v1.js" data-site="organic-withmd" />
+          <script async src="https://edge.tin.computer/sdk/v1.js" crossOrigin="anonymous" data-site="organic-withmd" />
         ) : null}
         {enablePrivateFonts ? <link rel="stylesheet" href={privateFontsStylesheetUrl} /> : null}
         <script
