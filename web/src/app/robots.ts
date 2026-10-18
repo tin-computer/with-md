@@ -7,7 +7,10 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       {
         userAgent: '*',
-        allow: '/',
+        // Raw share endpoints must stay fetchable: user-triggered agent fetchers
+        // (e.g. Claude-User) honor robots.txt, and the longer Allow rule wins
+        // over the /s/ and /r/ Disallows. Indexing is blocked via X-Robots-Tag.
+        allow: ['/', '/s/*/raw', '/r/*/raw'],
         disallow: [
           '/api/',
           '/workspace',

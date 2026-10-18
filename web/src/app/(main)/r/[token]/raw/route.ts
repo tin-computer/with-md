@@ -90,6 +90,7 @@ export async function GET(request: Request, { params }: Params) {
     headers: {
       'Content-Type': 'text/html; charset=utf-8',
       'Cache-Control': 'no-store',
+      'X-Robots-Tag': 'noindex, nofollow, noarchive',
     },
   });
 }
