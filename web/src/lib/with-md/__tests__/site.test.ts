@@ -17,7 +17,7 @@ describe('site metadata routes', () => {
     expect(metadata.rules).toEqual([
       {
         userAgent: '*',
-        allow: '/',
+        allow: ['/', '/s/*/raw', '/r/*/raw'],
         disallow: [
           '/api/',
           '/workspace',
